@@ -19,19 +19,28 @@
 
 <div class="container">
 <h1>Wild World</h1>
+<h2>Click on a button to get some cool gifs!</h2>
+
+<!-- Buttons appended here with starter buttons-->
+<div id="animal-buttons">
+
+<button class="animal" data-animal="cat">Cat</button>
+<button class="animal" data-animal="dog">Dog</button>
+<button class="animal" data-animal="bird">Bird</button>
+</div>
 
 <!-- Animal gifs will be displayed here -->
 <div id="animal-view"></div>
 
 <form id="animal-form">
-<label for="animal-input">Add a fluffy animal!</label>
-<input type="text" id="animal-input">
+  <label for="animal-input">Add a silly animal!</label>
+  <input type="text" id="animal-input">
 <br>
 
 <!-- Button that triggers new animal to be added -->
-<button data-animal="#animal-input" type="submit" value="Add animal">
-	Add Animal
-</button>
+<input id="add-button" type="submit" value="Add Animal">
+
+</form>
 
 <!--<img> src for data state-->
 

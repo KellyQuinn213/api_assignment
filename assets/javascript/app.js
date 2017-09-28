@@ -1,63 +1,60 @@
-//This is just a test function
-$(document).ready(function() {
-console.log(0);
-
-//Create variable array for topic
-var topics = [];
-//test console
+//Our array with the initial inputs
+var topics = ["cat", "dog", "bird"];
 console.log(topics);
-//On click event that grabs the input value and stores it into variable: topics
-$("button").on("click", function() {
 
-//push user input into the array
-//topics.push($("#animal-input"));
-console.log(topics);
-    //Append new button onto the page
+//Function that generates button from the input
+function createButton() {
+	//Empty the div so there are not repeat displayed buttons
+	$("#animal-buttons").empty();
 
-    //Create variable for animal
-    var animal = $(this).attr("data-animal");
-    //Create variable for query URL
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        animal + "&api_key=dc6zaTOxFJmzC&limit=10";
+        // Looping through the array of animals
+        for (var i = 0; i < topics.length; i++) {
 
-    console.log("Animal:" + animal);
-    console.log("queryURL:" + queryURL);
+            //Dynamically generates buttons for each animal in the array.
+            var newBtn = $("<button>");
+            // Adding a class
+         	newBtn.addClass("animal");
+            // Adding a data-attribute with a value of the animal at index i
+            newBtn.attr("data-animal", topics[i]);
+            // Providing the button's text with a value of the animal at index i
+            newBtn.text(topics[i]);
+            // Adding the button to the HTML
+            $("#animal-buttons").append(newBtn);
+        }
+    }
 
-    //Create AJAX call
-    $.ajax({
-            url: queryURL,
-            method: "GET"
-        })
-        .done(function(response) {
-            var results = response.data;
-            console.log(response);
+    // This function handles events when the add animal button is clicked
+      $("#add-button").on("click", function(event) {
+        // event.preventDefault() prevents the form from trying to submit itself.
+        event.preventDefault();
 
-            //Create for-loop to go through response
-            for (var i = 0; i < results.length; i++) {
-                //Create variable for gif div
-                var gifDiv = $("<div class='item'>");
-                //Create variable for rating
-                var rating = results[i].rating;
-                //Create <p> tag in jQuery to display rating
-                var p = $("<p>").text("Rating: " + rating);
-                //Create a variable for the animal image in jQuery <img> tag
-                var animalImage = $("<img>");
-                animalImage.attr("src", results[i].images.fixed_height.url);
+        // This line will grab the text from the input box
+        var animal = $("#animal-input").val().trim();
 
-                //prepend the p and img variable to the gif div
-                gifDiv.prepend(p);
-                gifDiv.prepend(animalImage);
+        // The animal from the textbox is then added to our array
+        topics.push(animal);
 
-                //prepend the gif div to the original div for gif dump
-                $("#animal-view").prepend(gifDiv);
+        // calling renderButtons which handles the processing of our animal array
+        createButton();
 
-            }
-        });
+        //Log new array including the new entry
+        console.log(topics);
+      });
 
- //on click function for gif animate
- //Create variable for state
- //if/else statement for animating and pausing
+      // Calling the renderButtons function at least once to display the initial list of animals
+      createButton();
+ 
 
-});
 
-});
+
+
+
+
+
+
+
+
+
+
+
+
