@@ -4,48 +4,55 @@
 <head>
     <meta charset="utf-8">
     <title>Giphy Clicks</title>
+
+    <!-- CSS and Reset.css linked -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!--Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    
 </head>
 
 <body>
-<!-- CSS and Reset.css linked -->
-<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-
-<!--Google Fonts
-<link href="https://fonts.googleapis.com/css?family=Cinzel:400,900" rel="stylesheet"> -->
-
-<!-- JQuery -->
-<script src="https://code.jquery.com/jquery.js"></script>
 
 <div class="container">
-<h1>Wild World</h1>
-<h2>Click on a button to get some cool gifs!</h2>
+	<div id="masthead">Gif Safari</div>
 
-<!-- Buttons appended here with starter buttons-->
-<div id="animal-buttons">
-
-<button class="animal" data-animal="cat">Cat</button>
-<button class="animal" data-animal="dog">Dog</button>
-<button class="animal" data-animal="bird">Bird</button>
-</div>
-
-<!-- Animal gifs will be displayed here -->
-<div id="animal-view"></div>
-
-<form id="animal-form">
-  <label for="animal-input">Add a silly animal!</label>
-  <input type="text" id="animal-input">
+<!-- Button generator text box -->
+<div id="submit-form">	
+	<form id="animal-form">
+	<label for="animal-input">Add a silly animal!</label>
+	<input type="text" id="animal-input">
 <br>
 
 <!-- Button that triggers new animal to be added -->
 <input id="add-button" type="submit" value="Add Animal">
-
 </form>
+</div>
+</div>
+
+<div id="instructions">
+	<h1>Instructions:</h1>
+	<br>
+	<h2>Click on a button to get some cool gifs!</h2>
+	<h3>Create your own button by entering a new animal in the text box</h3>
+</div>
+
+<!-- Buttons appended here with starter buttons-->
+<div id="animal-buttons"></div>
+
+<!-- Animal gifs will be displayed here -->
+<div class="container">
+<div id="animal-view"></div>
 
 <!--<img> src for data state-->
 
 <!-- Javascript externally linked -->
-<script type="text/javascript" src="assets/javascript/app.js"></script>
+<script type="text/javascript " src="assets/javascript/app.js "></script>
 
 </body>
 
